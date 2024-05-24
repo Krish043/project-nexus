@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Jost', sans-serif;
+    }
+    .container{
+        background: url("https://doc-08-2c-docs.googleusercontent.com/docs/securesc/68c90smiglihng9534mvqmq1946dmis5/fo0picsp1nhiucmc0l25s29respgpr4j/1631524275000/03522360960922298374/03522360960922298374/1Sx0jhdpEpnNIydS4rnN4kHSJtU1EyWka?e=view&authuser=0&nonce=gcrocepgbb17m&user=03522360960922298374&hash=tfhgbs86ka6divo3llbvp93mg4csvb38") no-repeat center/ cover;
+        width: 400px;
+        height: 500px;
+        border-radius: 10px;
+        box-shadow: 5px 20px 50px #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        overflow: hidden;
+    }
+    #signup {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        margin-top: 25px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #login{
+        position: relative;
+        height: 100%;
+        width: 100%;
+        margin-top: 25px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        align-items: center;
+        justify-content: center;
+
+    }
+    input {
+        background: #e0dede;
+        height: 35px;
+        width: 250px;
+        border-radius: 15px;
+        padding: 5px;
+        font-family: 'Jost', sans-serif;
+    }
+    .error {
+        color: white;
+        font-size: 0.75rem;
+        display: none;
+        text-shadow: 0 0 5px red;
+        animation: glowBlink 1s infinite;
+    }
+    @keyframes glowBlink {
+            0%, 100% {
+                opacity: 1;
+                text-shadow: 0 0 5px red, 0 0 10px red, 0 0 15px red, 0 0 20px red;
+            }
+            50% {
+                opacity: 0;
+                text-shadow: none;
+            }
+        }
+    .l {
+        color: white;
+        font-size: 36px;
+        font-family: 'Poppins', sans-serif;
+        transition: 0.8s ease-in-out;
+    }
+    .s {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        color: white;
+        font-size: 36px;
+        font-family: 'Open Sans', sans-serif;
+    }
+    #login {
+        background-color: white;
+        height: 450px;
+        border-radius: 55%/15%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    label {
+        font-family: 'Jost', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: #fff;
+        transition: 0.5s ease-in-out;
+    }
+    #login label {
+        transform: scale(.6);
+        margin-top: -150px ;
+        color: #573b8a;
+    }
+    #chk {
+        display: none;
+    }
+    .but {
+        font-family: 'Jost', sans-serif;
+        color: #fff;
+        background: #573b8a;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px;
+        height: 45px;
+        width: 225px;
+        border-radius: 10px;
+        transition: 0.5s ease-in;
+    }
+    #log{
+        position: absolute;
+        /* bottom: 0px; */
+        top: 150px;
+    }
+    .container:hover{
+         box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6);
+    }
+    .but:hover {
+        background: #6d44b8;
+    }
+    #chk:checked ~ .l {
+        transform: translateY(-320px);
+        transition: 0.8s ease-in-out;
+    }
+    #chk:checked ~ .l label {
+        transform: scale(1);
+    }
+    #chk:checked ~ .s label {
+        transform: scale(.6);
+    }
+    @media screen and (max-width: 430px) {
+        .container{
+            width: 350px;
+        }
+    }
+    @media screen and (max-width: 360px) {
+        .container{
+            width: 300px;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <input type="checkbox" id="chk" aria-hidden="true">
+        <div class="s">
+            <form id="signup">
+                <label for="chk" aria-hidden="true">Sign Up</label>
+                <input type="text" placeholder="  User Name" id="uname">
+                <input type="email" placeholder="  E-mail" id="email">
+                <input type="password" id="signup-password" placeholder="  Password">
+                <span id="signup-error" class="error">Password must be at least 8 characters long.</span>
+                <button type="submit" class="but">Signup</button>
+            </form>
+        </div>
+        <div class="l">
+            <form id="login">
+                <label for="chk" aria-hidden="true" id="log">Login</label>
+                <input type="email" placeholder="  E-mail" id="lmail">
+                <input type="password" id="login-password" placeholder="  Password">
+                <span id="login-error" class="error">Password must be at least 8 characters long.</span>
+                <button type="submit" class="but">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('signup').addEventListener('submit', function(event) {
+            var password = document.getElementById('signup-password').value;
+            var error = document.getElementById('signup-error');
+            var user = document.getElementById('uname').value;
+            var mail = document.getElementById('email').value;
+            if (password.length < 8) {
+                error.style.display = 'block';
+                event.preventDefault(); // Prevent form submission
+            } 
+            else if (user.length <1 || mail.length<1){
+                error.innerText = "Please enter all the details";
+                error.style.display = 'block';
+                event.preventDefault();
+            } 
+            else {
+                error.style.display = 'none';
+            }
+            
+        });
+
+        document.getElementById('login').addEventListener('submit', function(event) {
+            var password = document.getElementById('login-password').value;
+            var error = document.getElementById('login-error');
+            var mail = document.getElementById('lmail').value;
+            
+            if (password.length < 8) {
+                error.style.display = 'block';
+                event.preventDefault(); // Prevent form submission
+            } 
+            else if (mail.length<1){
+                error.innerText = "Please enter all the details";
+                error.style.display = 'block';
+                event.preventDefault();
+            } 
+            else {
+                error.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
